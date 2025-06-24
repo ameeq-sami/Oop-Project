@@ -68,6 +68,8 @@ int SicifiMovie::calculateScore(int noOfDays)
 
 void SicifiMovie::display()
 {
+    std::cout<<"Title: "<<getTitle()<<"     Rating: "<<getRating()<<std::endl;
+    std::cout<<"Director Detail: "<<std::endl;
     std::cout<<*this;
 }
 

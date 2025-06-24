@@ -7,11 +7,11 @@ class Name{
     
     protected:
     void setFirstName(std::string fn);
-    std::string getFirstName();
     void setLastName(std::string ln);
-    std::string getLastName();
-
+    
     public:
+    std::string getFirstName();
+    std::string getLastName();
     void setName(std::string fn, std::string ln);
     Name getName();
     Name();

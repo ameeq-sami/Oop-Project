@@ -20,10 +20,10 @@ class Director{
     Director(Director &other);
     ~Director();
 
-    friend void directorArrayToFile(std::string fileName, Director *directors, int arr_size);
     void setDirector(std::string fn, std::string ln, int ye, std::string na);
     virtual Director getDirector();
-
+    
+    friend void directorArrayToFile(std::string fileName, Director *directors, int arr_size);
     friend std::ostream& operator<< (std::ostream& out , Director& d);
     void display();
     

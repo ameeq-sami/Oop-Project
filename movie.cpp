@@ -69,9 +69,9 @@ std::ostream &operator<<(std::ostream &out, Movie &m)
 }
 
 
-bool searchByTitle(std::string t, Movie &toSearch)
+bool searchByTitle(std::string t, Movie* toSearch)
 {
-    if (toSearch.getTitle() == t)
+    if (toSearch->getTitle() == t)
     {
         return true;
     }
@@ -79,9 +79,9 @@ bool searchByTitle(std::string t, Movie &toSearch)
     return false;
 }
 
-bool searchByRating(int r, Movie &toSearch)
+bool searchByRating(int r, Movie* toSearch)
 {
-    if (toSearch.getRating() == r)
+    if (toSearch->getRating() == r)
     {
         return true;
     }
@@ -89,9 +89,9 @@ bool searchByRating(int r, Movie &toSearch)
     return false;
 }
 
-bool searchByTitleAndRating(std::string t, int r, Movie &toSearch)
+bool searchByTitleAndRating(std::string t, int r, Movie* toSearch)
 {
-    if (toSearch.getRating() == r && toSearch.getTitle() == t )
+    if (toSearch->getRating() == r && toSearch->getTitle() == t )
     {
         return true;
     }

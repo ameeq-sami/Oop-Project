@@ -31,15 +31,15 @@ class Movie{
          );
     Movie(Movie& other);
     ~Movie();
-
+    
     Director& getDirector();
     friend std::ostream& operator<< (std::ostream& out , Movie& m);
     virtual int calculateScore(int noOfDays);
     virtual void display();
     
-    friend bool searchByTitle(std::string t, Movie &toSearch);
-    friend bool searchByRating(int r, Movie &toSearch);
-    friend bool searchByTitleAndRating(std::string t, int r, Movie &toSearch);
+    friend bool searchByTitle(std::string t, Movie* toSearch);
+    friend bool searchByRating(int r, Movie* toSearch);
+    friend bool searchByTitleAndRating(std::string t, int r, Movie* toSearch);
 
     
 };

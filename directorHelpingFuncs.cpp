@@ -1,22 +1,7 @@
-#include "sta.h"
-#include "director.h"
+#include "directorHelpingFuncs.h"
+#include<fstream>
+#include <string>
 
-int fileSize(std::string fileName){
-    std::fstream file;
-    file.open(fileName, std::ios::in);
-    if (!file.is_open())
-    {
-        std::cout << "Error: Could not open file." << std::endl;
-        return -1 ;
-    }
-    std::string line;
-    int lineCount = 0;
-    while (getline(file, line))
-    {
-        lineCount++;
-    }
-    return lineCount;
-}
 
 void directorFileAppend(std::string fileName, int directors_count)
 {
@@ -73,13 +58,22 @@ void directorFileToArray(std::string fileName, Director *directors, int arr_size
 void directorArrayToFile(std::string fileName, Director *directors, int arr_size)
 {
     std::fstream file;
-    file.open(fileName, std::ios::in);
+    file.open(fileName, std::ios::out);
+    if (!file.is_open()) {
+    std::cout << "Error: Could not open file." << std::endl;
+    return ;
+    }
+    file.clear();
     for (int  i = 0; i < arr_size; i++)
     {
-        file<<directors[i].get();
+        file<<directors[i].name.getFirstName()<<std::endl;
+        file<<directors[i].name.getLastName()<<std::endl;
+        file<<directors[i].getNationality()<<std::endl;
+        file<<directors[i].getYearOfExperience()<<std::endl;
         
     }
-    
+    file.close();
+
 }
 
 void directorFileDisplay(std::string fileName)
@@ -97,18 +91,19 @@ void directorFileDisplay(std::string fileName)
         
             if (i == 0)
             {
-                std::cout<<"Director First Name: ";    
+                std::cout<<"------Director------\n ";    
+                std::cout<<"First Name: ";    
             }
             else if (i == 1)
             {
-                std::cout<<"Director Second Name: ";
+                std::cout<<"Second Name: ";
             }
             else if (i == 2)
             {
-                std::cout<<"Director Year of Exprience: ";
+                std::cout<<"Year of Exprience: ";
             }
             else
-            std::cout<<"Director Nationality: ";
+            std::cout<<"Nationality: ";
             std::cout<<str<<std::endl;
             i++;
             if (i == 4) i = 0;            
