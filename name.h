@@ -12,6 +12,7 @@ class Name{
     public:
     std::string getFirstName();
     std::string getLastName();
+    
     void setName(std::string fn, std::string ln);
     Name getName();
     Name();

@@ -20,15 +20,18 @@ class AnimationMovie : public Movie
     public:
     AnimationMovie();
     AnimationMovie(Director& di, int da, std::string m, int y, std::string t, int r, int am, int ag, bool mu);
+    AnimationMovie(std::string fn, std::string ln, int ye, std::string nation, int da, std::string m, int y, std::string t, int r, int am, int ag, bool mu);
     AnimationMovie(AnimationMovie &other);
     ~AnimationMovie();
 
-    friend std::ostream& operator<< (std::ostream& out, AnimationMovie& am);
     void display() override;
     int calculateScore(int noOfDays) override;
     void suggestMerchandise();
     bool isFamilyFriendly();
     void changeAnimationStyle(int as);
+    
+    friend void animationMovie_ArrayToFile(std::string fileName, AnimationMovie *a_movies, int arr_size);
+    friend std::ostream& operator<< (std::ostream& out, AnimationMovie& am);
 
 
 

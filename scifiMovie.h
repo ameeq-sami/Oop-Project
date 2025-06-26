@@ -1,5 +1,7 @@
 #pragma once
 #include"movie.h"
+#include"scifiMovie.h"
+
 class SicifiMovie:public Movie
 {
     private:
@@ -19,15 +21,17 @@ class SicifiMovie:public Movie
     public:
     SicifiMovie();
     SicifiMovie(Director& di, int da, std::string m, int y, std::string t ,int r, int tl, bool a, bool fy);
+    SicifiMovie(std::string fn, std::string ln, int ye, std::string nation, int da, std::string m, int y, std::string t ,int r, int tl, bool a, bool fy);
     SicifiMovie(SicifiMovie& other);
     ~SicifiMovie();
 
     int calculateScore(int noOfDays) override;
-    friend std::ostream& operator<<(std::ostream& out,SicifiMovie& sm);
     void display() override;
     void showTechAnalysis();
     void simulateFutureScenario();
     void toggleAlienInvasion();
+    friend std::ostream& operator<<(std::ostream& out,SicifiMovie& sm);
+    friend void sicifiMovie_ArrayToFile(std::string fileName, SicifiMovie *s_movies, int arr_size);
 
 
 

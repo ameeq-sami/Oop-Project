@@ -1,4 +1,5 @@
 #include"scifiMovie.h"
+#include"movie.h"
 
 void SicifiMovie::setTechLevel(int tl)
 {
@@ -47,6 +48,15 @@ SicifiMovie::SicifiMovie(Director &di, int da, std::string m, int y, std::string
     setTechLevel(tl);
     setAlien(a);
     setFutureYear(fy);
+    setGenre();
+}
+
+SicifiMovie::SicifiMovie(std::string fn, std::string ln, int ye, std::string nation, int da, std::string m, int y, std::string t, int r, int tl, bool a, bool fy):Movie( fn,  ln, ye, nation, da,  m, y , t ,r )
+{
+    setTechLevel(tl);
+    setAlien(a);
+    setFutureYear(fy);
+    setGenre();
 }
 
 SicifiMovie::SicifiMovie(SicifiMovie &other):Movie(other)
@@ -100,6 +110,7 @@ void SicifiMovie::toggleAlienInvasion()
 
 std::ostream &operator<<(std::ostream &out, SicifiMovie &sm)
 { 
-    out<<sm.getDirector()<<"Tech Level: "<< sm.getTechLevel()<<"      Alien Status: "<<sm.getAlien() <<"      Future Year Status: "<<sm.getFutureYear()<<std::endl;
+    out<<"Title: "<<sm.getTitle()<<"     Rating: "<<sm.getRating()<<std::endl<<sm.getDirector()<<"Tech Level: "<< sm.getTechLevel()<<"      Alien Status: "<<sm.getAlien() <<"      Future Year Status: "<<sm.getFutureYear()<<std::endl;
     return out; 
 }
+

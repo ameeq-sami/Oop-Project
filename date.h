@@ -9,13 +9,13 @@ class Date{
 
     protected:
     void setDay(int d);
-    int getDay();
     void setMonth(std::string m);
-    std::string getMonth();
     void setYear(int y);
-    int  getYear();
-
+    
     public:
+    int getDay();
+    std::string getMonth();
+    int  getYear();
     Date();
     Date(int d, std::string m, int y);
     Date(Date &other);

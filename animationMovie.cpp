@@ -52,6 +52,14 @@ AnimationMovie::AnimationMovie(Director &di, int da, std::string m, int y, std::
     setGenre();
 }
 
+AnimationMovie::AnimationMovie(std::string fn, std::string ln, int ye, std::string nation, int da, std::string m, int y, std::string t, int r, int am, int ag, bool mu): Movie(fn, ln, ye, nation, da, m, y, t, r)
+{
+    setAnimationStyle(am);
+    setAgeGroup(ag);
+    setMusical(mu);
+    setGenre();
+}
+
 AnimationMovie::AnimationMovie(AnimationMovie &other):Movie(other)
 {
     setAnimationStyle(other.getAnimationStyle());
@@ -66,6 +74,8 @@ AnimationMovie::~AnimationMovie()
 
 void AnimationMovie::display()
 {
+    std::cout<<"Title: "<<getTitle()<<"     Rating: "<<getRating()<<std::endl;
+    std::cout<<"Director Detail: "<<std::endl;
     std::cout<<*this;
 }
 
@@ -100,7 +110,7 @@ void AnimationMovie::changeAnimationStyle(int as)
 
 std::ostream &operator<<(std::ostream &out, AnimationMovie &am)
 {
-    out<<am.getDirector()<<"Animation Style: "<< am.getAnimationStyle()<<"      Age Group: "<<am.getAgeGroup() <<"      Musical: "<<am.getMusical()<<std::endl;
+    out<<"Title: "<<am.getTitle()<<"     Rating: "<<am.getRating()<<std::endl<<am.getDirector()<<"Animation Style: "<< am.getAnimationStyle()<<"      Age Group: "<<am.getAgeGroup() <<"      Musical: "<<am.getMusical()<<std::endl;
     return out; 
 }
 

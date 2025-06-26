@@ -24,6 +24,7 @@ class Director{
     virtual Director getDirector();
     
     friend void directorArrayToFile(std::string fileName, Director *directors, int arr_size);
+    friend void directorArrayToFile(std::string fileName, Director director, std::string mode);
     friend std::ostream& operator<< (std::ostream& out , Director& d);
     void display();
     

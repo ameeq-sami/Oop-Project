@@ -42,6 +42,12 @@ Movie::Movie(Director &di, int da, std::string m, int y, std::string t, int r): 
     setRating(r);
 }
 
+Movie::Movie(std::string fn, std::string ln, int ye, std::string nation, int da, std::string m, int y, std::string t, int r):director(fn, ln, ye, nation), releaseDate(da, m, y)
+{
+    setTitle(t);
+    setRating(r);
+}
+
 Movie::Movie(Movie &other):director(other.director), releaseDate(other.releaseDate)
 {
     setTitle(other.getTitle());
@@ -69,9 +75,9 @@ std::ostream &operator<<(std::ostream &out, Movie &m)
 }
 
 
-bool searchByTitle(std::string t, Movie* toSearch)
+bool searchByTitle(std::string t, Movie toSearch)
 {
-    if (toSearch->getTitle() == t)
+    if (toSearch.getTitle() == t)
     {
         return true;
     }
