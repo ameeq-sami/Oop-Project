@@ -23,6 +23,7 @@ class Movie{
     
     public: 
 
+    int getMovieYear();
     Movie();
     Movie(Director& di ,int da, std::string m, int y ,std::string t ,int r );
     Movie(std::string fn, std::string ln, int ye, std::string nation, int da, std::string m, int y ,std::string t ,int r );
@@ -31,12 +32,15 @@ class Movie{
     
     Director& getDirector();
     friend std::ostream& operator<< (std::ostream& out , Movie& m);
-    virtual int calculateScore(int noOfDays);
+    virtual int calculateScore();
     virtual void display();
     
+
+    friend bool searchByYear(int yr, Movie toSearch);
     friend bool searchByTitle(std::string t, Movie toSearch);
-    friend bool searchByRating(int r, Movie* toSearch);
-    friend bool searchByTitleAndRating(std::string t, int r, Movie* toSearch);
+    friend bool searchByRating(int r, Movie toSearch);
+    friend bool searchByTitleAndRating(std::string t, int r, Movie toSearch);
+    friend bool searchByDrector(std::string fn, std::string ln, Movie toSearch);
 
     
 };

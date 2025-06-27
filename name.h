@@ -10,6 +10,8 @@ class Name{
     void setLastName(std::string ln);
     
     public:
+    
+    void getName(std::string &fn, std::string &ln);
     std::string getFirstName();
     std::string getLastName();
     

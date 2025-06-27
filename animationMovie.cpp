@@ -79,9 +79,9 @@ void AnimationMovie::display()
     std::cout<<*this;
 }
 
-int AnimationMovie::calculateScore(int noOfDays)
+int AnimationMovie::calculateScore()
 {
-    return (getRating()*noOfDays*(getAgeGroup()/getAnimationStyle())%10);
+    return (getRating()*releaseDate.getDay()*(getAgeGroup()/getAnimationStyle())%10);
 }
 
 void AnimationMovie::suggestMerchandise()

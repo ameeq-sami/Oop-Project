@@ -1,4 +1,4 @@
-#pragma oncce
+#pragma once
 #include"movie.h"
 class AnimationMovie : public Movie
 {
@@ -25,7 +25,7 @@ class AnimationMovie : public Movie
     ~AnimationMovie();
 
     void display() override;
-    int calculateScore(int noOfDays) override;
+    int calculateScore() override;
     void suggestMerchandise();
     bool isFamilyFriendly();
     void changeAnimationStyle(int as);

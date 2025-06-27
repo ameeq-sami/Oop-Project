@@ -1,6 +1,5 @@
 #pragma once
 #include"movie.h"
-#include"scifiMovie.h"
 
 class SicifiMovie:public Movie
 {
@@ -25,7 +24,7 @@ class SicifiMovie:public Movie
     SicifiMovie(SicifiMovie& other);
     ~SicifiMovie();
 
-    int calculateScore(int noOfDays) override;
+    int calculateScore() override;
     void display() override;
     void showTechAnalysis();
     void simulateFutureScenario();

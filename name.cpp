@@ -5,6 +5,12 @@ void Name::setFirstName(std::string fn)
     firstName = fn;
 }
 
+void Name::getName(std::string &fn, std::string &ln)
+{
+    fn = getFirstName();
+    ln = getLastName();
+}
+
 std::string Name::getFirstName()
 {
     return firstName;

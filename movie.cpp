@@ -30,6 +30,12 @@ std::string Movie::getGenre()
     return genre;
 }
 
+int Movie::getMovieYear()
+{
+
+    return releaseDate.getYear();
+}
+
 Movie::Movie() : director(), releaseDate()
 {
     setTitle("EMPTY");
@@ -58,9 +64,9 @@ Movie::~Movie()
 {
 }
 
-int Movie::calculateScore(int noOfDays) 
+int Movie::calculateScore() 
 {
-    return (getRating()*noOfDays)%10;
+    return (getRating()*releaseDate.getDay())%10;
 }
 
 void Movie::display() 
@@ -74,9 +80,17 @@ std::ostream &operator<<(std::ostream &out, Movie &m)
     return out;
 }
 
+bool searchByYear(int yr, Movie toSearch)
+{
+    if (toSearch.getMovieYear() == yr)
+    return true;
+    
+    return false;
+}
 
 bool searchByTitle(std::string t, Movie toSearch)
 {
+    
     if (toSearch.getTitle() == t)
     {
         return true;
@@ -85,9 +99,9 @@ bool searchByTitle(std::string t, Movie toSearch)
     return false;
 }
 
-bool searchByRating(int r, Movie* toSearch)
+bool searchByRating(int r, Movie toSearch)
 {
-    if (toSearch->getRating() == r)
+    if (toSearch.getRating() == r)
     {
         return true;
     }
@@ -95,15 +109,24 @@ bool searchByRating(int r, Movie* toSearch)
     return false;
 }
 
-bool searchByTitleAndRating(std::string t, int r, Movie* toSearch)
+bool searchByTitleAndRating(std::string t, int r, Movie toSearch)
 {
-    if (toSearch->getRating() == r && toSearch->getTitle() == t )
+    if (toSearch.getRating() == r && toSearch.getTitle() == t )
     {
         return true;
     }
     
     return false;
 }
+
+bool searchByDrector(std::string fn, std::string ln, Movie toSearch)
+{
+    std::string f,l;
+    toSearch.director.getDirectorName(f,l);
+    if (fn == f && ln == l) return true;
+    return false;
+}
+
 
 Director& Movie::getDirector()
 {

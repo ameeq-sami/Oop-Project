@@ -49,6 +49,13 @@ ActionMovie::ActionMovie(Director &di, int da, std::string m, int y, std::string
     setStunts(s);
 }
 
+ActionMovie::ActionMovie(std::string fn, std::string ln, int ye, std::string nation, int da, std::string m, int y, std::string t, int r, std::string vl, int nf, bool s):Movie( fn, ln, ye, nation, da, m, y, t, r)
+{
+    setViolenceLevel(vl);
+    setNoOfFightScenes(nf);
+    setStunts(s);
+}
+
 ActionMovie::ActionMovie(ActionMovie &other):Movie(other) 
 {
     setViolenceLevel(other.getViolenceLevel());
@@ -60,7 +67,7 @@ ActionMovie::~ActionMovie()
 {
 }
 
-int ActionMovie::calculateScore(int n)
+int ActionMovie::calculateScore()
 {
     int nf; 
     if (getNoOfFightScenes() > 7 )
@@ -69,7 +76,7 @@ int ActionMovie::calculateScore(int n)
     }
     else nf = getNoOfFightScenes();
     
-    return (((getRating()*n*nf)/countExplosions())%10);
+    return (((getRating()*releaseDate.getDay()*nf)/countExplosions())%10);
 }
 
 int ActionMovie::countExplosions()
@@ -107,10 +114,13 @@ void ActionMovie::stuntCoordinatorReport()
 
 void ActionMovie::display()
 {
+    std::cout<<"Title: "<<getTitle()<<"     Rating: "<<getRating()<<std::endl;
+    std::cout<<"Director Detail: "<<std::endl;
     std::cout<<*this;
 }
 
 std::ostream &operator<<(std::ostream &out, ActionMovie &am)
 {
-    out << am.getDirector()<<"Violence Level: "<<am.getViolenceLevel() <<"      No of Fight scenes: " <<am.getNoOfFightScenes()<< "     Has Stunts: "<<am.getStunts()<<std::endl;
+    out<<"Title: "<<am.getTitle()<<"     Rating: "<<am.getRating()<<std::endl<<am.getDirector()<<"Violence Level: "<<am.getViolenceLevel() <<"      No of Fight scenes: " <<am.getNoOfFightScenes()<< "     Has Stunts: "<<am.getStunts()<<std::endl;
+    return out;
 }

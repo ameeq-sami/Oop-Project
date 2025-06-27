@@ -7,14 +7,15 @@ class Director{
     Name name;
     int yearOfExperience;
     std::string nationality;
-
+    
     protected: 
     void setYearOfExperience(int ye);
     int getYearOfExperience();
     void setNationality(std::string na);
     std::string getNationality();
 
-    public: 
+    public:
+    void getDirectorName(std::string &fn, std::string &ln);  
     Director();
     Director(std::string fn, std::string ln, int ye, std::string na );
     Director(Director &other);

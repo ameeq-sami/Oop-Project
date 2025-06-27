@@ -20,7 +20,12 @@ std::string Director::getNationality()
     return nationality;
 }
 
-Director::Director():name()
+void Director::getDirectorName(std::string &fn, std::string &ln)
+{
+    name.getName(fn, ln);
+}
+
+Director::Director() : name()
 {
     setYearOfExperience(-1);
     setNationality("NULL");

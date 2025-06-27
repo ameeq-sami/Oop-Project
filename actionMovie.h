@@ -19,14 +19,17 @@ class ActionMovie: public Movie{
     public: 
     ActionMovie();
     ActionMovie(Director& di, int da, std::string m, int y, std::string t, int r, std::string vl, int nf, bool s);
+    ActionMovie(std::string fn, std::string ln, int ye, std::string nation, int da, std::string m, int y, std::string t, int r, std::string vl, int nf, bool s);
     ActionMovie(ActionMovie& other);
     ~ActionMovie();
 
-    int calculateScore(int n) override;
+    int calculateScore() override;
     int countExplosions();
     void  assessCensorship();
     void stuntCoordinatorReport();
-    friend std::ostream& operator<< (std::ostream& out, ActionMovie& am);
     void display() override;
+    
+    friend std::ostream& operator<< (std::ostream& out, ActionMovie& am);
+    friend void actionMovie_ArrayToFile(std::string fileName, ActionMovie *a_movies, int arr_size);
     
 };

@@ -71,9 +71,9 @@ SicifiMovie::~SicifiMovie()
 {
 }
 
-int SicifiMovie::calculateScore(int noOfDays)
+int SicifiMovie::calculateScore()
 {
-    return (Movie::getRating()*noOfDays*getTechLevel())%10;
+    return (Movie::getRating()*releaseDate.getDay()*getTechLevel())%10;
 }
 
 void SicifiMovie::display()
@@ -85,7 +85,7 @@ void SicifiMovie::display()
 
 void SicifiMovie::showTechAnalysis()
 {
-    if (calculateScore(4) > 7)
+    if (calculateScore() > 7)
     {
         std::cout<<"Awesome "<<std::endl;
     }
@@ -95,7 +95,7 @@ void SicifiMovie::showTechAnalysis()
 
 void SicifiMovie::simulateFutureScenario()
 {
-    if (calculateScore(4) > 7 && getAlien() == 1 && getFutureYear() == 1)
+    if (calculateScore() > 7 && getAlien() == 1 && getFutureYear() == 1)
     {
         std::cout<<"Future is bright"<<std::endl;
     }
