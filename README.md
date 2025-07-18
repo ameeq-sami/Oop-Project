@@ -1,6 +1,4 @@
-To create a `README.md` for your GitHub project, I'll draft a template based on your file structure and typical C++ OOP project conventions. You can further customize it as needed.
 
----
 
 # Oop-Project
 
